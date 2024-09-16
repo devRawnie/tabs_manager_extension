@@ -4,4 +4,6 @@
 - Can stash all the opened tabs together
 - Can name a group of stash
 - Can remove a link from a stash group
+
+## Upcoming Features
 - Can search for links in all the available stashes
