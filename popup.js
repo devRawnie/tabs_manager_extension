@@ -5,9 +5,32 @@ const renderTabGroups = async () => {
     for (const groupKey in tabGroup) {
       const group = tabGroup[groupKey];
       const groupContainer = document.createElement("div");
-      const timeContainer = document.createElement("p");
-      timeContainer.innerText = `Created On: ${group['created_at']}`;
-      groupContainer.append(timeContainer);
+      groupContainer.classList.add("group-container")
+      const titleContainer = document.createElement("input");
+      titleContainer.id = groupKey;
+      titleContainer.value = group['title'];
+      titleContainer.readOnly = true;
+      titleContainer.classList.add("title-container")
+
+      titleContainer.onclick = (e) => {
+        e.target.classList.add("active");
+        e.target.readOnly = false;
+        e.target.select();
+      }
+
+      const updateGroupName = (e) => {
+        e.target.classList.remove("active");
+        e.target.readOnly = true;
+        renameGroup(e.target.id, e.target.value);
+      }
+
+      titleContainer.onblur = updateGroupName;
+      groupContainer.append(titleContainer);
+      titleContainer.onkeydown = (e) => {
+        if (e.key === 'Enter') {
+          updateGroupName(e);
+        }
+      }
 
       const textContainer = document.createElement("p");
       textContainer.innerText = `${group["tabs"].length} Tabs`;
@@ -50,6 +73,13 @@ const openGroup = (groupName) => {
     });
 }
 
+const renameGroup = (groupId, newName) => {
+  chrome.storage.local.get(groupId, (tabGroup) => {
+    tabGroup[groupId].title = newName;
+    chrome.storage.local.set(tabGroup);
+  });
+}
+
 document.getElementById('stash').addEventListener('click', async () => {
   try {
     const activeTabs = await chrome.tabs.query({ currentWindow: true });
@@ -65,14 +95,17 @@ document.getElementById('stash').addEventListener('click', async () => {
     })
     const currentTime = new Date();
     const timeString = `${currentTime.getDay()}-${currentTime.getMonth()+1}-${currentTime.getFullYear()}, ${currentTime.getHours()}:${currentTime.getMinutes()}:${currentTime.getSeconds()}`;
+    const groupId = Date.now();
     const tabGroup = {
       created_at: timeString,
-      tabs: tabList
+      tabs: tabList,
+      title: `Created at: ${timeString}`,
+      id: groupId
     };
 
-    await chrome.storage.local.set({ [Date.now()]: tabGroup });
-    alert(`Stored ${activeTabs.length} tabs`);
+    await chrome.storage.local.set({ [groupId]: tabGroup });
     renderTabGroups();
+    alert(`Stored ${activeTabs.length} tabs`);
   } catch (error) {
     console.log("error in stashing tabs", error);
     alert(error);
