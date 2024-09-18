@@ -42,6 +42,8 @@ li:nth-child(even) {
   padding: 5px;
   border: 1px solid #ffffff;
   width: 100%;
+  font-style: italic;
+  font-size: large;
 }
 
 .title-container:hover {
@@ -58,6 +60,22 @@ li:nth-child(even) {
 
 .group-container {
   padding: 10px;
+}
+
+.tab-item {
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+
+.tab-item:hover {
+  color: blue;
+}
+
+
+.tab-count {
+  font-size: large;
+  font-weight: 600;
 }
 
 button {

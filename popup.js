@@ -33,13 +33,14 @@ const renderTabGroups = async () => {
       }
 
       const textContainer = document.createElement("p");
+      textContainer.classList.add("tab-count");
       textContainer.innerText = `${group["tabs"].length} Tabs`;
       groupContainer.append(textContainer);
 
       const tabList = document.createElement('ul');
       group["tabs"]?.forEach(tab=>{
         const tabElement = document.createElement("li");
-        tabElement.innerHTML = `<img src='${tab.favicon}' class='favicon'></img>: ${tab.title}`;
+        tabElement.innerHTML = `<a class='tab-item' href='${tab.url}' target='_blank'><img src='${tab.favicon}' class='favicon'></img>: ${tab.title}</a>`;
         tabList.append(tabElement);
       });
 
