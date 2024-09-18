@@ -37,3 +37,41 @@ li:nth-child(even) {
 .favicon{
   width: 16px;
 }
+
+.title-container {
+  padding: 5px;
+  border: 1px solid #ffffff;
+  width: 100%;
+}
+
+.title-container:hover {
+  border: 1px solid blue
+}
+
+.title-container .active {
+  border: 1px solid blue;
+}
+
+.tab-container {
+  margin: 10px;
+}
+
+.group-container {
+  padding: 10px;
+}
+
+button {
+  padding: 10px;
+  background-color: #ffffff;
+  margin: 5px;
+  border-radius: 5%;
+  border: 1px solid #e8e8e8;
+  cursor: pointer;
+  color: #000000;
+}
+
+button:hover {
+  background-color: #e8e8e8;
+  color: #000000;
+  border: 1px solid blue;
+}
