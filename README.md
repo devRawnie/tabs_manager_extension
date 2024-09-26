@@ -17,4 +17,5 @@
 
 ## Gallery
 
-
+<img width="337" alt="Screenshot 2024-09-18 at 9 20 39 PM" src="https://github.com/user-attachments/assets/be47a359-0c3a-4053-bfb5-9f470f598c51"><br/>
+<img width="334" alt="Screenshot 2024-09-18 at 9 21 15 PM" src="https://github.com/user-attachments/assets/48e3fd12-d063-407a-a9a4-14934c4f920c">
