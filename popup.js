@@ -1,6 +1,8 @@
 const renderTabGroups = async () => {
     const tabGroup = await chrome.storage.local.get();
     const tabContainer = document.getElementById('tab-container');
+    if (Object.values(tabGroup).length == 0)  return;
+
     tabContainer.innerHTML = "";
     for (const groupKey in tabGroup) {
       const group = tabGroup[groupKey];
