@@ -41,9 +41,12 @@ li:nth-child(even) {
 .title-container {
   padding: 5px;
   border: 1px solid #ffffff;
-  width: 100%;
+  width: fit-content;
   font-style: italic;
   font-size: large;
+  border-bottom: 1px solid black;
+  font-size: large;
+  font-weight: 600;
 }
 
 .title-container:hover {
@@ -53,13 +56,17 @@ li:nth-child(even) {
 .title-container .active {
   border: 1px solid blue;
 }
-
-.tab-container {
+#tab-container {
   margin: 10px;
+}
+
+#empty-container {
+  text-align: center;
 }
 
 .group-container {
   padding: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .tab-item {
@@ -74,8 +81,8 @@ li:nth-child(even) {
 
 
 .tab-count {
-  font-size: large;
-  font-weight: 600;
+  font-size: medium;
+  font-weight: 400;
 }
 
 button {
