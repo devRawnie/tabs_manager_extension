@@ -36,7 +36,7 @@ const renderTabGroups = async () => {
 
       const textContainer = document.createElement("p");
       textContainer.classList.add("tab-count");
-      textContainer.innerText = `${group["tabs"].length} Tabs`;
+      textContainer.innerText = `# Tabs: ${group["tabs"].length}`;
       groupContainer.append(textContainer);
 
       const tabList = document.createElement('ul');
