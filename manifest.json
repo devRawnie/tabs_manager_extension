@@ -1,6 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Tab Stash",
+  "description": "Declutter your browser by organizing your tabs into collections for later use. Stay productive and keep your browser clean!",
   "version": "1.0",
   "icons": {
     "16": "images/icon-16.png",
